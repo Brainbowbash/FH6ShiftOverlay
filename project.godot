@@ -17,7 +17,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="FH6ShiftOverlay"
-config/description="A overlay for Forza Horizon 6 displaying useful shifting information using Forza's Data Out feed."
+config/description="An overlay for Forza Horizon 6 displaying useful shifting information using Forza's Data Out feed."
 config/version="0.1.0"
 run/main_scene="uid://jcpc7fhl8k43"
 run/print_header=false

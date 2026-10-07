@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Brainbowbash
 using Godot;
 using System;
+namespace OverlayUI;
 public partial class SimplePowerDisplay : Control
 {
 	private Enums.PowerUnitType powerUnitType;
