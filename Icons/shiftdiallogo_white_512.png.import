@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgmql6sw1xrs0"
-path="res://.godot/imported/shiftdiallogo.png-128aa358b6c009ff90721a6eef390b36.ctex"
+uid="uid://c4qbvexnqlxok"
+path="res://.godot/imported/shiftdiallogo_white_512.png-9440e4de8db66026ccaa89660d0d097f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/shiftdiallogo.png"
-dest_files=["res://.godot/imported/shiftdiallogo.png-128aa358b6c009ff90721a6eef390b36.ctex"]
+source_file="res://Icons/shiftdiallogo_white_512.png"
+dest_files=["res://.godot/imported/shiftdiallogo_white_512.png-9440e4de8db66026ccaa89660d0d097f.ctex"]
 
 [params]
 
