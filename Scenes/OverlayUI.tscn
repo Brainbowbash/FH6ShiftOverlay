@@ -1,0 +1,408 @@
+[gd_scene format=3 uid="uid://dqw8cxk5tjmtu"]
+
+[ext_resource type="Script" uid="uid://dn0k7p8ajqoar" path="res://Scripts/OverlayFrontendScripts/HUDSafeFrame.cs" id="1_2yynf"]
+[ext_resource type="Script" uid="uid://dbrdckrlleaqo" path="res://Scripts/OverlayFrontendScripts/OverlayMaster.cs" id="1_3xpcn"]
+[ext_resource type="Theme" uid="uid://3o16qf7gtgkj" path="res://Theme/theme1.tres" id="1_s4dpi"]
+[ext_resource type="Script" uid="uid://cousrt2c3twpo" path="res://Scripts/OverlayFrontendScripts/PowerbandZone.cs" id="2_flylh"]
+[ext_resource type="Shader" uid="uid://b3kskeikw6jhx" path="res://Shaders/LineFading.gdshader" id="3_vh0c2"]
+[ext_resource type="Script" uid="uid://dw88iw1laxwph" path="res://Scripts/OverlayFrontendScripts/ShiftIndicator.cs" id="4_sfl0s"]
+[ext_resource type="Shader" uid="uid://0i1dppp47uun" path="res://Shaders/LineFadingGauge.gdshader" id="6_5beq7"]
+[ext_resource type="Shader" uid="uid://bq66l8r2ucpgy" path="res://Shaders/SimplePowerGrid.gdshader" id="6_ux5wp"]
+[ext_resource type="Script" uid="uid://b82ioegrj5oag" path="res://Scripts/OverlayFrontendScripts/FullPowerDisplay.cs" id="7_ltlgu"]
+[ext_resource type="Script" uid="uid://84jrttva2s3d" path="res://Scripts/OverlayFrontendScripts/SimplePowerDisplay.cs" id="7_vecrq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xpcn"]
+shader = ExtResource("6_5beq7")
+shader_parameter/limits = Vector2(0, 1)
+shader_parameter/limit_sharpness = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owd60"]
+shader = ExtResource("6_ux5wp")
+shader_parameter/subdivisions = Vector2(1, 1)
+shader_parameter/axis_thickness = 1.6
+shader_parameter/grid_thickness = 0.8
+shader_parameter/background_color = Color(0.12, 0.12, 0.12, 0.2509804)
+shader_parameter/grid_color = Color(1, 1, 1, 0.5019608)
+shader_parameter/axis_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltlgu"]
+shader = ExtResource("3_vh0c2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ux5wp"]
+shader = ExtResource("6_ux5wp")
+shader_parameter/subdivisions = Vector2(1, 1)
+shader_parameter/axis_thickness = 1.6
+shader_parameter/grid_thickness = 0.8
+shader_parameter/background_color = Color(0.12, 0.12, 0.12, 0.2509804)
+shader_parameter/grid_color = Color(1, 1, 1, 0.5019608)
+shader_parameter/axis_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_ux5wp"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 550
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+
+[sub_resource type="SystemFont" id="SystemFont_5beq7"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 600
+multichannel_signed_distance_field = true
+
+[node name="OverlayMaster" type="Control" unique_id=804711503]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_s4dpi")
+script = ExtResource("1_3xpcn")
+
+[node name="HUD" type="MarginContainer" parent="." unique_id=2107417411]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2yynf")
+
+[node name="Center" type="CenterContainer" parent="HUD" unique_id=1894700137]
+layout_mode = 2
+
+[node name="CentralShiftIndicator" type="Control" parent="HUD/Center" unique_id=1605140963]
+layout_mode = 2
+script = ExtResource("4_sfl0s")
+
+[node name="Arrows" type="Control" parent="HUD/Center/CentralShiftIndicator" unique_id=2092579787]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShiftUpArrow" type="Polygon2D" parent="HUD/Center/CentralShiftIndicator/Arrows" unique_id=400663452]
+visible = false
+color = Color(0.7921569, 1, 0.007843138, 1)
+polygon = PackedVector2Array(-16, -6, 0, -22, 16, -6)
+
+[node name="ShiftDownArrow" type="Polygon2D" parent="HUD/Center/CentralShiftIndicator/Arrows" unique_id=2112773586]
+visible = false
+color = Color(1, 0, 0.53333336, 1)
+polygon = PackedVector2Array(-16, 6, 0, 22, 16, 6)
+
+[node name="BottomRight" type="Control" parent="HUD" unique_id=625691287]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="PowerbandZoneUI" type="Control" parent="HUD/BottomRight" unique_id=1183792448]
+anchors_preset = 0
+offset_left = -149.0
+offset_top = -137.55
+script = ExtResource("2_flylh")
+
+[node name="ArcLine" type="Line2D" parent="HUD/BottomRight/PowerbandZoneUI" unique_id=985033512]
+material = SubResource("ShaderMaterial_3xpcn")
+width = 5.0
+texture_mode = 2
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 2
+
+[node name="RevGaugeShiftIndicator" type="Control" parent="HUD/BottomRight" unique_id=1802621804]
+anchors_preset = 0
+script = ExtResource("4_sfl0s")
+
+[node name="Arrows" type="Control" parent="HUD/BottomRight/RevGaugeShiftIndicator" unique_id=343202026]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -138.00002
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ShiftUpArrow" type="Polygon2D" parent="HUD/BottomRight/RevGaugeShiftIndicator/Arrows" unique_id=2009345507]
+color = Color(0.7921569, 1, 0.007843138, 1)
+polygon = PackedVector2Array(-16, -6, 0, -22, 16, -6)
+
+[node name="ShiftDownArrow" type="Polygon2D" parent="HUD/BottomRight/RevGaugeShiftIndicator/Arrows" unique_id=671050923]
+color = Color(1, 0, 0.53333336, 1)
+polygon = PackedVector2Array(-16, 6, 0, 22, 16, 6)
+
+[node name="SimplePowerDisplay" type="Control" parent="HUD/BottomRight" unique_id=1446904165]
+anchors_preset = 0
+script = ExtResource("7_vecrq")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/BottomRight/SimplePowerDisplay" unique_id=246152760]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -340.0
+offset_right = -3.0
+offset_bottom = -300.0
+
+[node name="MarginContainer" type="Control" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer" unique_id=329657643]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer/MarginContainer" unique_id=1486098163]
+layout_mode = 0
+offset_right = 297.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer/MarginContainer/HBoxContainer" unique_id=1474994425]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="SmallGrid" type="ColorRect" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=752539281]
+material = SubResource("ShaderMaterial_owd60")
+layout_mode = 0
+offset_left = 5.0
+offset_top = -18.0
+offset_right = 149.0
+offset_bottom = 18.0
+
+[node name="PowerLine" type="Line2D" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=580575457]
+material = SubResource("ShaderMaterial_ltlgu")
+position = Vector2(5, 18)
+width = 3.0
+default_color = Color(1, 0.9490196, 0, 1)
+texture_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer/MarginContainer/HBoxContainer" unique_id=1882737853]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = -3
+
+[node name="CurrentPower" type="Label" parent="HUD/BottomRight/SimplePowerDisplay/PanelContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1306516333]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+
+[node name="FullPowerDisplay" type="Control" parent="HUD/BottomRight" unique_id=854543082]
+visible = false
+anchors_preset = 0
+script = ExtResource("7_ltlgu")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/BottomRight/FullPowerDisplay" unique_id=531139878]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -460.0
+offset_right = -3.0
+offset_bottom = -300.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer" unique_id=39799082]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer" unique_id=1055284767]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer" unique_id=187263685]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="BigGrid" type="ColorRect" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=1938682924]
+texture_repeat = 1
+material = SubResource("ShaderMaterial_ux5wp")
+layout_mode = 0
+offset_left = 5.0
+offset_top = -77.0
+offset_right = 149.0
+offset_bottom = 77.0
+
+[node name="PowerLine" type="Line2D" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=1564539379]
+material = SubResource("ShaderMaterial_ltlgu")
+position = Vector2(5, 77)
+width = 3.0
+default_color = Color(1, 0.9490196, 0, 1)
+texture_mode = 1
+
+[node name="TorqueLine" type="Line2D" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=737095289]
+material = SubResource("ShaderMaterial_ltlgu")
+position = Vector2(5, 77)
+width = 3.0
+default_color = Color(1, 0, 0.53333336, 1)
+texture_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer" unique_id=432299286]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=107217584]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1968134264]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=2136551949]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1968349883]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = -2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Title" unique_id=651433848]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ux5wp")
+text = "Peak:"
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1419028874]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="PeakPower" type="Label" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1579108962]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=489345519]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 0
+
+[node name="PeakTorque" type="Label" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=561292499]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1905302996]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2" unique_id=1605963399]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer" unique_id=1279353490]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=1709268064]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/Title" unique_id=544691700]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ux5wp")
+text = "Current:"
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=1797350394]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="CurrentPower" type="Label" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/MarginContainer" unique_id=1425187169]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=694394365]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 0
+
+[node name="CurrentTorque" type="Label" parent="HUD/BottomRight/FullPowerDisplay/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/MarginContainer2" unique_id=309324167]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+
+[node name="InitialNotice" type="MarginContainer" parent="." unique_id=990225078]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="InitialNotice" unique_id=1412590541]
+layout_mode = 2
+color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+
+[node name="Center" type="CenterContainer" parent="InitialNotice" unique_id=601985444]
+layout_mode = 2
+
+[node name="WindowExistNotice" type="Control" parent="InitialNotice/Center" unique_id=771421951]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InitialNotice/Center/WindowExistNotice" unique_id=645542555]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InitialNotice/Center/WindowExistNotice/PanelContainer" unique_id=542927802]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="InitialNotice/Center/WindowExistNotice/PanelContainer/VBoxContainer" unique_id=674185657]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Title" type="Label" parent="InitialNotice/Center/WindowExistNotice/PanelContainer/VBoxContainer/MarginContainer" unique_id=1948596779]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_5beq7")
+theme_override_font_sizes/font_size = 65
+text = "Overlay Window Active"
+
+[node name="MarginContainer2" type="MarginContainer" parent="InitialNotice/Center/WindowExistNotice/PanelContainer/VBoxContainer" unique_id=1409726221]
+custom_minimum_size = Vector2(777, 439)
+custom_maximum_size = Vector2(777, 439)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Desc" type="Label" parent="InitialNotice/Center/WindowExistNotice/PanelContainer/VBoxContainer/MarginContainer2" unique_id=2137963369]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "This window will disappear when
+in game.
+
+Tip: If you want to capture the
+overlay on OBS or other recording
+software, now is the chance to
+hook this window!"

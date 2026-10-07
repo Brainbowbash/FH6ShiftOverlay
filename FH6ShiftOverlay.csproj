@@ -1,0 +1,17 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+
+    <!-- Use NativeAOT. -->
+    <PublishAot>true</PublishAot>
+    <RootNamespace>ShiftOverlayFH6</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+  <!-- Root the assemblies to avoid trimming. -->
+    <TrimmerRootAssembly Include="GodotSharp" />
+    <TrimmerRootAssembly Include="$(TargetName)" />
+  </ItemGroup>
+  
+</Project>

@@ -1,0 +1,8 @@
+.godot/
+.vs/
+
+*.exe
+*.pck
+*.zip
+
+*.cfg

@@ -1,0 +1,656 @@
+[gd_scene format=3 uid="uid://jcpc7fhl8k43"]
+
+[ext_resource type="Theme" uid="uid://3o16qf7gtgkj" path="res://Theme/theme1.tres" id="1_ghw46"]
+[ext_resource type="Script" uid="uid://7k4u43wcjxci" path="res://Scripts/MainMenuScripts/MainMenu.cs" id="2_df05h"]
+[ext_resource type="Script" uid="uid://dv3qinx3uvxh6" path="res://Scripts/MainMenuScripts/IpAddressEntry.cs" id="3_8um5k"]
+[ext_resource type="Script" uid="uid://2eol6nw3cx76" path="res://Scripts/MainMenuScripts/SpinboxRateLimit.cs" id="4_ghw46"]
+[ext_resource type="Script" uid="uid://b6a088tbd2pm1" path="res://Scripts/MainMenuScripts/OverlayControlButton.cs" id="5_df05h"]
+
+[sub_resource type="SystemFont" id="SystemFont_i26rj"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 550
+multichannel_signed_distance_field = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8um5k"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2509804, 0.7529412, 0.2509804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xim88"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.8, 0.08000002, 0.08000002, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df05h"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.297, 0.9, 0.297, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_koqhg"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 0.19999999, 0.19999999, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmrfp"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loo7a"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="MainMenu" type="Control" unique_id=1758628701]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ghw46")
+script = ExtResource("2_df05h")
+
+[node name="Background" type="ColorRect" parent="." unique_id=74231671]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+
+[node name="GUI" type="MarginContainer" parent="." unique_id=772556847]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI" unique_id=1888619093]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Settings" type="PanelContainer" parent="GUI/VBoxContainer" unique_id=256946248]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GUI/VBoxContainer/Settings" unique_id=2115164008]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer" unique_id=2056154499]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Display" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer" unique_id=1522703736]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display" unique_id=646346990]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer" unique_id=126973021]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=1914111187]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Title" unique_id=953619976]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_i26rj")
+theme_override_font_sizes/font_size = 24
+text = "Overlay Display"
+
+[node name="Option0" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=991906863]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option0" unique_id=562369001]
+layout_mode = 2
+tooltip_text = "Displays a set of up/down arrow indicators in the centre of the screen."
+
+[node name="DisplayCentralShiftIndicator" type="CheckButton" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option0/PanelContainer" unique_id=1722103726]
+layout_mode = 2
+tooltip_text = "Displays a set of up/down arrow indicators at the center of the screen."
+text = "Display Central Shift Indicator"
+
+[node name="Option1" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=1519107699]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option1" unique_id=2038043921]
+layout_mode = 2
+
+[node name="DisplayRevGaugeShiftIndicator" type="CheckButton" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option1/PanelContainer" unique_id=2096776027]
+layout_mode = 2
+tooltip_text = "Displays a set of up/down arrow indicators inside the rev-gauge."
+text = "Display Rev-Gauge Shift Indicator"
+
+[node name="Option2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=753974829]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option2" unique_id=2105506505]
+layout_mode = 2
+
+[node name="DisplayRevGaugePowerbandZone" type="CheckButton" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option2/PanelContainer" unique_id=830146396]
+layout_mode = 2
+tooltip_text = "Displays an arc on the outer part of the rev-gauge,
+showing the region where the engine produces the
+optimal power for the current gear."
+text = "Display Rev-Gauge Powerband Zone"
+
+[node name="Option3" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=172371981]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3" unique_id=633128441]
+layout_mode = 2
+tooltip_text = "Displays information about the engine:
+
+Disabled - No information
+
+Simple - Current Engine Power and
+small engine power curve are displayed.
+
+Full - Current Engine Power and Torque,
+Peak Engine Power and Torque, and detailed
+engine torque/power graph is displayed.
+
+Disclaimer:
+Parts of the power curve may be incomplete
+if the power hasn't been properly sampled
+throughout the entire rev-range."
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer" unique_id=1052628925]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer/VBoxContainer" unique_id=1104746931]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer/VBoxContainer/MarginContainer" unique_id=1085849122]
+layout_mode = 2
+text = "Display Rev-Gauge Engine Power Info"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer/VBoxContainer" unique_id=1408918476]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer/VBoxContainer/MarginContainer2" unique_id=2040337719]
+layout_mode = 2
+
+[node name="DisplayRevGaugeEnginePowerInfo" type="OptionButton" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=366996098]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Simple"
+popup/item_1/id = 1
+popup/item_2/text = "Full"
+popup/item_2/id = 2
+
+[node name="Option4" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=1794992553]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4" unique_id=718554914]
+layout_mode = 2
+tooltip_text = "The preferred power units for Engine Power Info."
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer" unique_id=1192675009]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer/VBoxContainer" unique_id=1214035291]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer/VBoxContainer/MarginContainer" unique_id=59559616]
+layout_mode = 2
+text = "Power Unit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer/VBoxContainer" unique_id=967791581]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer/VBoxContainer/MarginContainer2" unique_id=1659837096]
+layout_mode = 2
+
+[node name="PowerUnit" type="OptionButton" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=2086031709]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Imperial Horsepower (hp)"
+popup/item_0/id = 0
+popup/item_1/text = "Kilowatts (KW)"
+popup/item_1/id = 1
+popup/item_2/text = "Metric Horsepower (PS)"
+popup/item_2/id = 2
+
+[node name="Option5" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer" unique_id=559692281]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5" unique_id=396429264]
+layout_mode = 2
+tooltip_text = "The preferred torque units for Engine Power Info.
+
+Only affects Full Engine Power Info."
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer" unique_id=1912267416]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer/VBoxContainer" unique_id=923089408]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer/VBoxContainer/MarginContainer" unique_id=263127495]
+layout_mode = 2
+text = "Torque Unit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer/VBoxContainer" unique_id=194674461]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer/VBoxContainer/MarginContainer2" unique_id=1970774221]
+layout_mode = 2
+
+[node name="TorqueUnit" type="OptionButton" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=1498062576]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Newton Meters (Nm)"
+popup/item_0/id = 0
+popup/item_1/text = "Foot Pounds (ft-lb)"
+popup/item_1/id = 1
+
+[node name="Data Out" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer" unique_id=856828905]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out" unique_id=1176359537]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer" unique_id=679772217]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer" unique_id=516651733]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/Title" unique_id=1898913027]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_i26rj")
+theme_override_font_sizes/font_size = 24
+text = "Data Out"
+
+[node name="MarginContainer6" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer" unique_id=2056865674]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6" unique_id=872551109]
+layout_mode = 2
+tooltip_text = "The IP Address that the overlay will listen for packets from FH6.
+Suggested IP Address: 127.0.0.1"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer" unique_id=271188881]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer/VBoxContainer" unique_id=1893586201]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer/VBoxContainer/MarginContainer" unique_id=1606994273]
+layout_mode = 2
+text = "Data Out IP Address"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer/VBoxContainer" unique_id=1726625568]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer/VBoxContainer/MarginContainer2" unique_id=417092280]
+layout_mode = 2
+
+[node name="DataOutIPAddress" type="LineEdit" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=743497030]
+layout_mode = 2
+placeholder_text = "Example: 127.0.0.1"
+max_length = 15
+emoji_menu_enabled = false
+script = ExtResource("3_8um5k")
+
+[node name="MarginContainer7" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer" unique_id=1929617723]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7" unique_id=739047822]
+layout_mode = 2
+tooltip_text = "The IP Port that the overlay will listen for packets from FH6.
+Suggested Port: 8000"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer" unique_id=2116753766]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer/VBoxContainer" unique_id=1880415954]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer/VBoxContainer/MarginContainer" unique_id=1459064039]
+layout_mode = 2
+text = "Data Out IP Port"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer/VBoxContainer" unique_id=1690917718]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer/VBoxContainer/MarginContainer2" unique_id=635285235]
+layout_mode = 2
+
+[node name="DataOutIPPort" type="SpinBox" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=332969839]
+layout_mode = 2
+max_value = 65535.0
+value = 8000.0
+rounded = true
+script = ExtResource("4_ghw46")
+
+[node name="HUD Safe Frame" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer" unique_id=525876061]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame" unique_id=1389733884]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer" unique_id=2025023091]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer" unique_id=563518172]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/Title" unique_id=1602185135]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_i26rj")
+theme_override_font_sizes/font_size = 24
+text = "HUD Safe Frame"
+
+[node name="MarginContainer8" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer" unique_id=795382665]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8" unique_id=1576706451]
+layout_mode = 2
+tooltip_text = "The \"HUD Safe Zone Horizontal\" value from the game should be input here.
+Default is 5.2, the game doesn't show decimals."
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer" unique_id=500731967]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer/VBoxContainer" unique_id=1972234653]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer/VBoxContainer/MarginContainer" unique_id=241193453]
+layout_mode = 2
+text = "HUD Safe Frame Horizontal"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer/VBoxContainer" unique_id=1784355430]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer/VBoxContainer/MarginContainer2" unique_id=185863300]
+layout_mode = 2
+
+[node name="HUDSafeFrameHorizontal" type="SpinBox" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=1874133528]
+layout_mode = 2
+max_value = 70.0
+step = 0.1
+value = 5.2
+script = ExtResource("4_ghw46")
+
+[node name="MarginContainer9" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer" unique_id=1476068752]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9" unique_id=1418219288]
+layout_mode = 2
+tooltip_text = "The \"HUD Safe Zone Vertical\" value from the game should be input here.
+Default is 9.3, the game doesn't show decimals."
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer" unique_id=996561280]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer/VBoxContainer" unique_id=685693632]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer/VBoxContainer/MarginContainer" unique_id=1922818940]
+layout_mode = 2
+text = "HUD Safe Frame Vertical"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer/VBoxContainer" unique_id=273070901]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer/VBoxContainer/MarginContainer2" unique_id=2072801877]
+layout_mode = 2
+
+[node name="HUDSafeFrameVertical" type="SpinBox" parent="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=1243997161]
+layout_mode = 2
+max_value = 25.0
+step = 0.1
+value = 9.3
+script = ExtResource("4_ghw46")
+
+[node name="Button Bar" type="PanelContainer" parent="GUI/VBoxContainer" unique_id=206430648]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer/Button Bar" unique_id=1239685867]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer/Button Bar/HBoxContainer" unique_id=1717799080]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="OverlayControlButton" type="Button" parent="GUI/VBoxContainer/Button Bar/HBoxContainer/MarginContainer" unique_id=968578272]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8um5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xim88")
+theme_override_styles/hover = SubResource("StyleBoxFlat_df05h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_koqhg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cmrfp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_loo7a")
+toggle_mode = true
+keep_pressed_outside = true
+text = "Enable"
+script = ExtResource("5_df05h")
+
+[connection signal="toggled" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option0/PanelContainer/DisplayCentralShiftIndicator" to="." method="_DisplayCentralShiftIndicatorToggle"]
+[connection signal="toggled" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option1/PanelContainer/DisplayRevGaugeShiftIndicator" to="." method="_DisplayRevGaugeShiftIndicatorToggle"]
+[connection signal="toggled" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option2/PanelContainer/DisplayRevGaugePowerbandZone" to="." method="_DisplayRevGaugePowerbandZoneToggle"]
+[connection signal="item_selected" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option3/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/DisplayRevGaugeEnginePowerInfo" to="." method="_DisplayRevGaugeEnginePowerInfo"]
+[connection signal="item_selected" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option4/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/PowerUnit" to="." method="_PowerUnit"]
+[connection signal="item_selected" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Display/PanelContainer/VBoxContainer/Option5/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/TorqueUnit" to="." method="_TorqueUnit"]
+[connection signal="EntryCommitted" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer6/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/DataOutIPAddress" to="." method="_DataOutIPAddressValue"]
+[connection signal="PortCommitted" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/Data Out/PanelContainer/VBoxContainer/MarginContainer7/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/DataOutIPPort" to="." method="_DataOutIPPortValue"]
+[connection signal="PortCommitted" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer8/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/HUDSafeFrameHorizontal" to="." method="_HUDSafeFrameHorizontalValue"]
+[connection signal="PortCommitted" from="GUI/VBoxContainer/Settings/ScrollContainer/VBoxContainer/HUD Safe Frame/PanelContainer/VBoxContainer/MarginContainer9/PanelContainer/VBoxContainer/MarginContainer2/PanelContainer/HUDSafeFrameVertical" to="." method="_HUDSafeFrameVerticalValue"]
+[connection signal="toggled" from="GUI/VBoxContainer/Button Bar/HBoxContainer/MarginContainer/OverlayControlButton" to="." method="_OverlayControlButtonToggle"]

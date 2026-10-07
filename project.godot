@@ -1,0 +1,77 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+warnings/check_invalid_skeleton_modifier_node_paths=false
+warnings/check_invalid_track_paths=false
+warnings/check_angle_interpolation_type_conflicting=false
+
+[application]
+
+config/name="FH6ShiftOverlay"
+config/description="A overlay for Forza Horizon 6 displaying useful shifting information using Forza's Data Out feed."
+config/version="0.1.0"
+run/main_scene="uid://jcpc7fhl8k43"
+run/print_header=false
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
+run/low_processor_mode=true
+run/low_processor_mode_sleep_usec=10000
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/show_image=false
+boot_splash/use_filter=false
+config/icon="uid://dgmql6sw1xrs0"
+
+[autoload]
+
+PersistentStorage="*uid://b7wiweppbk7ik"
+OverlayWindowHandler="*uid://1c0kmwc6qw8l"
+DataMaster="*uid://7awa73mb4qfi"
+
+[debug]
+
+settings/physics_interpolation/enable_warnings=false
+file_logging/enable_file_logging.pc=false
+gdscript/warnings/enable=false
+shader_language/warnings/enable=false
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/borderless=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="FH6ShiftOverlay"
+
+[gui]
+
+timers/tooltip_delay_sec=0.3
+theme/default_font_multichannel_signed_distance_field=true
+
+[physics]
+
+2d/physics_engine="Dummy"
+3d/physics_engine="Dummy"
+common/enable_object_picking=false
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+driver/depth_prepass/enable=false
+environment/defaults/default_clear_color=Color(0, 0, 0, 0)
