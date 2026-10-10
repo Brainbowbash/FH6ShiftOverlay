@@ -100,4 +100,22 @@ The data is accumulated over time to build an approximation of the current car's
 >
 > Shift through all the gears in the car. The overlay doesn't know about gears that you haven't shifted to, and will thus be unable to provide shift-points for particular gears, defaulting to the highest RPM.
 
+## Build Instructions
+This project was made in the [Godot](https://github.com/godotengine/godot) game engine version 4.7.2.stable.mono using .NET 8.0.
 
+1. Download and unzip the source code
+2. Download or build [Godot 4.7.2 .NET version or above](https://godotengine.org/download/archive/4.7.2-stable/)
+3. Download and install [.NET 8.0 or above](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+4. Open the Godot game engine and import the project
+5. Build the project once with Alt+B or press the Build button.
+6. Select Project -> Export... -> Add... -> Windows Desktop
+7. If there is **No export template found**, press **Manage Export Templates** and download the export template for the platform.
+8. Go back to export menu and press **Export Project...**
+
+> [!TIP]
+> Enable **Dotnet -> Include Scripts Content** and **Binary Format -> Embed PCK** in the **Export** menu in Godot.
+> This will allow the executable to be moved outside of the initial directory without errors.
+
+> [!NOTE]
+> text
+> 
