@@ -1,3 +1,4 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I7B528KBJQ)
 # FH6ShiftOverlay
 <p align="center">
   <picture>
@@ -6,6 +7,13 @@
     <img width = 256 src="https://github.com/FH6ShiftOverlay/FH6ShiftOverlay/raw/main/Icons/shiftdiallogo_white_512.png" alt="FH6ShiftOverlay Logo" />
   </picture>
 </p>
+
+> [!IMPORTANT]
+> This project is an open-source overlay tool and is not affiliated with, endorsed by or sponsored by Microsoft Corporation, Turn 10 Studios or Playground Games.
+>
+> "Forza", "Forza Horizon" and related logos are registered trademarks of Microsoft Corporation.
+>
+> This project uses the system-default Sans-Serif font. This project does not package or distribute fonts.
 
 ## Informative Overlay for Forza Horizon 6
 **FH6ShiftOverlay** is an informative, minimalist overlay for the open-world racing game **Forza Horizon 6**, featuring essential shift-point information catered to each car.
@@ -117,5 +125,11 @@ This project was made in the [Godot](https://github.com/godotengine/godot) game 
 > This will allow the executable to be moved outside of the initial directory without errors.
 
 > [!NOTE]
-> text
+> The executable in [Releases](releases) uses a custom-built Export Template built with the options in [custom_build_option.gdbuild](https://github.com/Brainbowbash/FH6ShiftOverlay/blob/main/BuildOptions/custom_build_option.gdbuild) with this command:
 > 
+> ```scons platform=windows arch=x86_64 use_mingw=yes module_mono_enabled=yes target=template_release use_d3d12=no winrt=no angle=no disable_path_overrides=no build_profile="custom_build_option.gdbuild"``` or equivalent
+>
+> [More information about building custom Export Templates](https://docs.godotengine.org/en/stable/engine_details/development/compiling/compiling_for_windows.html#creating-windows-export-templates)
+
+> [!CAUTION]
+> If you choose to create your own Export Template, ensure that the `module_mono_enabled=yes` and `disable_path_overrides_no` flags are selected when building the Export Template with SCons.
