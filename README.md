@@ -1,3 +1,4 @@
+[![Patreon](https://img.shields.io/badge/Support_on-Patreon-FF424D?logo=patreon&logoColor=white)](https://www.patreon.com/c/FH6ShiftOverlay)
 # FH6ShiftOverlay
 <p align="center">
   <picture>
@@ -20,11 +21,12 @@ It provides an assortment of toggleable overlay options to choose from, customis
 
 ## How it works
 **FH6ShiftOverlay** uses the ["Data Out"](https://support.forza.net/hc/en-us/articles/51744149102611-Forza-Horizon-6-Data-Out-Documentation) feature available in Forza Horizon 6 to receive telemetry data about the car.
-This data is processed, and mapped to build an approximation of the vehicle's engine power curve and gear ratios.
+This incoming UDP data packets are processed, and mapped to build an approximation of the vehicle's engine power curve and gear ratios.
 The approximated engine power curve and relation between the gear ratios are used to maximise for optimal shift-points for each gear using numerical methods.
 Shift-points are re-generated when switching to a different car (or has been just upgraded) and cannot be fully displayed until a suitable region of the engine power curve has been mapped,
 in addition to the car being driven in all gears.
-
+> [!NOTE]
+> All incoming data stays with the overlay. The overlay does not transmit any traffic, it only receives data from the socket you have specified in the configuration menu.
 ## Overlay Visuals
 **FH6ShiftOverlay** features several, simplistic UI elements. Every overlay UI element is optional and can be disabled individually.
 Provided with the correct *HUD Safe Frame* values, the overlay will adjust to align with the in-game HUD.
@@ -124,7 +126,7 @@ This project was made in the [Godot](https://github.com/godotengine/godot) game 
 > This will allow the executable to be moved outside of the initial directory without errors.
 
 > [!NOTE]
-> The executable in [Releases](releases) uses a custom-built Export Template built with the options in [custom_build_option.gdbuild](https://github.com/Brainbowbash/FH6ShiftOverlay/blob/main/BuildOptions/custom_build_option.gdbuild) with this command:
+> The executable in [Releases](releases) uses a custom-built Export Template built with the build profile in [custom_build_option.gdbuild](https://github.com/Brainbowbash/FH6ShiftOverlay/blob/main/BuildOptions/custom_build_option.gdbuild) with this command:
 > 
 > ```scons platform=windows arch=x86_64 use_mingw=yes module_mono_enabled=yes target=template_release use_d3d12=no winrt=no angle=no disable_path_overrides=no build_profile="custom_build_option.gdbuild"``` or equivalent
 >
@@ -132,3 +134,13 @@ This project was made in the [Godot](https://github.com/godotengine/godot) game 
 
 > [!CAUTION]
 > If you choose to create your own Export Template, ensure that the `module_mono_enabled=yes` and `disable_path_overrides_no` flags are selected when building the Export Template with SCons.
+
+## Troubleshooting
+The most common issue is the overlay not updating in-game. This is often caused from the **Data Out** UDP packets never reaching the overlay.
+
+Double-check that the **Data Out** feature is enabled in FH6 and the **Data Out IP Address** and **Data Out IP Port** match both in FH6 and the overlay configuration menu.
+
+If it is still not working, check firewall settings, however this should not be an issue for localhost (127.0.0.1).
+
+## Donation and Support
+If you believe this project is worth donating to, please consider visiting this project's [Patreon](https://www.patreon.com/c/FH6ShiftOverlay).
