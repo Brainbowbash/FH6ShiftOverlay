@@ -14,6 +14,8 @@
 > "Forza", "Forza Horizon" and related logos are registered trademarks of Microsoft Corporation.
 >
 > This project uses the system-default Sans-Serif font. This project does not package or distribute fonts.
+>
+> The overlay does not read or modify game memory it is an external tool reliant on the data that the game explicitly feeds to the overlay.
 
 ## Informative Overlay for Forza Horizon 6
 **FH6ShiftOverlay** is an informative, minimalist overlay for the open-world racing game **Forza Horizon 6**, featuring essential shift-point information catered to each car.
